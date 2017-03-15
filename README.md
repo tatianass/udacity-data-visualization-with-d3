@@ -11,6 +11,10 @@ https://d3js.org/d3.v4.min.js
 d3.select('.main').html(null);
 var svg = d3.select('.main').append('svg');
 svg.attr('width', 600).attr('height', 300); 
-d3.scaleLinear().domain([15, 90]).range([250,0]);
-var y = d3.scaleLinear().domain([15, 90]).range([250,0]);
-var x = d3.scaleLog().domain([250,100000]).range([0, 600]);
+//var y = d3.scaleLinear().domain([15, 90]).range([250,0]);
+var y = d3.scale.linear().domain([15, 90]).range([250,0]);
+//var x = d3.scaleLog().domain([250,100000]).range([0, 600]);
+var x = d3.scale.log().domain([250,100000]).range([0, 600]);
+//var r = d3.scaleSqrt().domain([52070,1380000000]).range([10, 40]);
+var r = d3.scale.sqrt().domain([52070,1380000000]).range([10, 40]);
+svg.append('circle').attr('fill', 'red').attr('r',r(1380000000)).attr('cx', x(13330)).attr('cy', y(77));
